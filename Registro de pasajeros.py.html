@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Registro de pasajeros.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+.s5 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Registro de pasajeros.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#Bryan Angulo Portuguez</span>
+<span class="s0">#Registro de pasajeros</span>
+
+<span class="s0"># Definimos el tamaño de la aeronave: 5 filas y 4 asientos por fila.</span>
+<span class="s1">FILAS </span><span class="s2">= </span><span class="s3">5</span>
+<span class="s1">ASIENTOS_POR_FILA </span><span class="s2">= </span><span class="s3">4</span>
+
+<span class="s0"># Creamos una matriz que representa los asientos. Inicialmente, todos están &quot;Vacío&quot;.</span>
+<span class="s1">aeronave </span><span class="s2">= [[</span><span class="s4">&quot;Vacío&quot; </span><span class="s5">for </span><span class="s1">_ </span><span class="s5">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">ASIENTOS_POR_FILA</span><span class="s2">)] </span><span class="s5">for </span><span class="s1">_ </span><span class="s5">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">FILAS</span><span class="s2">)]</span>
+
+
+<span class="s0"># Función para asignar un pasajero a un asiento específico</span>
+<span class="s5">def </span><span class="s1">asignar_asiento</span><span class="s2">(</span><span class="s1">fila</span><span class="s2">, </span><span class="s1">asiento</span><span class="s2">, </span><span class="s1">nombre</span><span class="s2">):</span>
+    <span class="s5">if </span><span class="s3">0 </span><span class="s2">&lt;= </span><span class="s1">fila </span><span class="s2">&lt; </span><span class="s1">FILAS </span><span class="s5">and </span><span class="s3">0 </span><span class="s2">&lt;= </span><span class="s1">asiento </span><span class="s2">&lt; </span><span class="s1">ASIENTOS_POR_FILA</span><span class="s2">:</span>
+        <span class="s5">if </span><span class="s1">aeronave</span><span class="s2">[</span><span class="s1">fila</span><span class="s2">][</span><span class="s1">asiento</span><span class="s2">] == </span><span class="s4">&quot;Vacío&quot;</span><span class="s2">:</span>
+            <span class="s1">aeronave</span><span class="s2">[</span><span class="s1">fila</span><span class="s2">][</span><span class="s1">asiento</span><span class="s2">] = </span><span class="s1">nombre</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Asiento </span><span class="s5">{</span><span class="s1">fila </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}{</span><span class="s1">asiento </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">} </span><span class="s4">asignado a </span><span class="s5">{</span><span class="s1">nombre</span><span class="s5">}</span><span class="s4">.&quot;</span><span class="s2">)</span>
+        <span class="s5">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;El asiento </span><span class="s5">{</span><span class="s1">fila </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}{</span><span class="s1">asiento </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">} </span><span class="s4">ya está ocupado por </span><span class="s5">{</span><span class="s1">aeronave</span><span class="s2">[</span><span class="s1">fila</span><span class="s2">][</span><span class="s1">asiento</span><span class="s2">]</span><span class="s5">}</span><span class="s4">.&quot;</span><span class="s2">)</span>
+    <span class="s5">else</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Número de fila o asiento no válido.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0"># Función para imprimir todos los asientos y su estado</span>
+<span class="s5">def </span><span class="s1">imprimir_asientos</span><span class="s2">():</span>
+    <span class="s5">for </span><span class="s1">i </span><span class="s5">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">FILAS</span><span class="s2">):</span>
+        <span class="s5">for </span><span class="s1">j </span><span class="s5">in </span><span class="s1">range</span><span class="s2">(</span><span class="s1">ASIENTOS_POR_FILA</span><span class="s2">):</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Asiento </span><span class="s5">{</span><span class="s1">i </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}{</span><span class="s1">j </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}</span><span class="s4">: </span><span class="s5">{</span><span class="s1">aeronave</span><span class="s2">[</span><span class="s1">i</span><span class="s2">][</span><span class="s1">j</span><span class="s2">]</span><span class="s5">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;-&quot; </span><span class="s2">* </span><span class="s3">20</span><span class="s2">)</span>
+
+
+<span class="s0"># Función para consultar un asiento específico</span>
+<span class="s5">def </span><span class="s1">consultar_asiento</span><span class="s2">(</span><span class="s1">fila</span><span class="s2">, </span><span class="s1">asiento</span><span class="s2">):</span>
+    <span class="s5">if </span><span class="s3">0 </span><span class="s2">&lt;= </span><span class="s1">fila </span><span class="s2">&lt; </span><span class="s1">FILAS </span><span class="s5">and </span><span class="s3">0 </span><span class="s2">&lt;= </span><span class="s1">asiento </span><span class="s2">&lt; </span><span class="s1">ASIENTOS_POR_FILA</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;Asiento </span><span class="s5">{</span><span class="s1">fila </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}{</span><span class="s1">asiento </span><span class="s2">+ </span><span class="s3">1</span><span class="s5">}</span><span class="s4">: </span><span class="s5">{</span><span class="s1">aeronave</span><span class="s2">[</span><span class="s1">fila</span><span class="s2">][</span><span class="s1">asiento</span><span class="s2">]</span><span class="s5">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+    <span class="s5">else</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Número de fila o asiento no válido.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0"># Ejemplo de uso del programa</span>
+<span class="s5">while True</span><span class="s2">:</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s5">\n</span><span class="s4">Menú:&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;1. Asignar asiento&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;2. Consultar asiento&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;3. Imprimir todos los asientos&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;4. Salir&quot;</span><span class="s2">)</span>
+
+    <span class="s1">opcion </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Seleccione una opción: &quot;</span><span class="s2">)</span>
+
+    <span class="s5">if </span><span class="s1">opcion </span><span class="s2">== </span><span class="s4">&quot;1&quot;</span><span class="s2">:</span>
+        <span class="s1">fila </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Ingrese el número de fila (1-5): &quot;</span><span class="s2">)) - </span><span class="s3">1</span>
+        <span class="s1">asiento </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Ingrese el número de asiento (1-4): &quot;</span><span class="s2">)) - </span><span class="s3">1</span>
+        <span class="s1">nombre </span><span class="s2">= </span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Ingrese el nombre del pasajero: &quot;</span><span class="s2">)</span>
+        <span class="s1">asignar_asiento</span><span class="s2">(</span><span class="s1">fila</span><span class="s2">, </span><span class="s1">asiento</span><span class="s2">, </span><span class="s1">nombre</span><span class="s2">)</span>
+
+    <span class="s5">elif </span><span class="s1">opcion </span><span class="s2">== </span><span class="s4">&quot;2&quot;</span><span class="s2">:</span>
+        <span class="s1">fila </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Ingrese el número de fila (1-5): &quot;</span><span class="s2">)) - </span><span class="s3">1</span>
+        <span class="s1">asiento </span><span class="s2">= </span><span class="s1">int</span><span class="s2">(</span><span class="s1">input</span><span class="s2">(</span><span class="s4">&quot;Ingrese el número de asiento (1-4): &quot;</span><span class="s2">)) - </span><span class="s3">1</span>
+        <span class="s1">consultar_asiento</span><span class="s2">(</span><span class="s1">fila</span><span class="s2">, </span><span class="s1">asiento</span><span class="s2">)</span>
+
+    <span class="s5">elif </span><span class="s1">opcion </span><span class="s2">== </span><span class="s4">&quot;3&quot;</span><span class="s2">:</span>
+        <span class="s1">imprimir_asientos</span><span class="s2">()</span>
+
+    <span class="s5">elif </span><span class="s1">opcion </span><span class="s2">== </span><span class="s4">&quot;4&quot;</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Saliendo del programa.&quot;</span><span class="s2">)</span>
+        <span class="s5">break</span>
+
+    <span class="s5">else</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Opción no válida. Intente de nuevo.&quot;</span><span class="s2">)</span></pre>
+</body>
+</html>
